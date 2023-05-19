@@ -4,6 +4,7 @@ import HelloWorld from './components/HelloWorld.vue';
 
 <template>
   <div>
+    <p class="text-6xl text-red-700">Hello!</p>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
