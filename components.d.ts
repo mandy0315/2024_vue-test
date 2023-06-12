@@ -10,6 +10,5 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    IMingcuteAddFill: typeof import('~icons/mingcute/add-fill')['default']
   }
 }

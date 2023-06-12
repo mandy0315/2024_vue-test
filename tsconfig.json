@@ -26,10 +26,11 @@
     },
 		"allowJs": true, // TS 與 JS 互相引入
     "types": [
-      "vite/client" // 識別 import.meta.env
+      "vite/client", // 識別 import.meta
     ],
     "forceConsistentCasingInFileNames": false, // 禁用檢查路徑檔案大小寫
-		"noImplicitAny": false,    // TODO 暫時允許 any 類型 js 載入問題
+		"noImplicitAny": false,    // TODO 暫時允許 any 類型 js 載入問題,
+
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
