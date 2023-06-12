@@ -2,7 +2,6 @@
 
 <template>
   <div>
-    <p class="text-6xl text-red-700">Hello!</p>
-    <HelloWorld msg="Vite + Vue" />
+    <HelloWorld msg="Hello Vitest" />
   </div>
 </template>
