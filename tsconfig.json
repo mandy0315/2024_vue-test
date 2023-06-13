@@ -32,6 +32,6 @@
 		"noImplicitAny": false,    // TODO 暫時允許 any 類型 js 載入問題,
 
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/__test__/.arrange&act.spec copy.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
