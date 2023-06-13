@@ -5,10 +5,24 @@ import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import path from 'path';
 
+const isProd = process.env.NODE_ENV === 'production';
+const removeDataTestAttrs = node => {
+  if (node.type === 1 /* NodeTypes.ELEMENT */) {
+    node.props = node.props.filter(prop =>
+      prop.type === 6 /* NodeTypes.ATTRIBUTE */ ? prop.name !== 'data-test' : true,
+    );
+  }
+};
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          nodeTransforms: isProd ? [removeDataTestAttrs] : [],
+        },
+      },
+    }),
     Components({
       dts: true, // 產生 components.d.ts 檔
       resolvers: [IconsResolver()],
