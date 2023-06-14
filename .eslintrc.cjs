@@ -21,5 +21,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off', // 關掉沒使用語法
     '@typescript-eslint/no-this-alias': 'off', // 關掉禁止 this 別名
     '@typescript-eslint/no-empty-function': 'off', // 關掉沒使用函式
+    '@typescript-eslint/no-explicit-any': ['off'], // 關掉 any
   },
 };
