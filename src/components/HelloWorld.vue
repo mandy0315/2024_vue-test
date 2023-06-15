@@ -46,12 +46,20 @@ const selectedResult = ref('');
       <input v-model="textResult" type="text" data-test="text" />
       <p data-test="text-result">{{ textResult }}</p>
       <!-- radio -->
-      <input data-test="radio" type="radio" v-model="radioResult" value="1" />1
-      <input data-test="radio" type="radio" v-model="radioResult" value="2" />2
+      <div data-test="radio">
+        <label v-for="num in 2" :key="num">
+          <input v-model="radioResult" type="radio" :value="num" />
+          {{ num }}
+        </label>
+      </div>
       <p data-test="radio-result">{{ radioResult }}</p>
       <!-- checkbox -->
-      <input data-test="checkbox" type="checkbox" v-model="checkboxResult" value="1" />1
-      <input data-test="checkbox" type="checkbox" v-model="checkboxResult" value="2" />2
+      <div data-test="checkbox">
+        <label v-for="num in 2" :key="num">
+          <input data-test="checkbox" type="checkbox" v-model="checkboxResult" :value="num" />
+          {{ num }}
+        </label>
+      </div>
       <p data-test="checkbox-result">{{ checkboxResult.join(',') }}</p>
       <!-- select -->
       <select data-test="selected" v-model="selectedResult">
@@ -60,5 +68,13 @@ const selectedResult = ref('');
       </select>
       <p data-test="selected-result">{{ selectedResult }}</p>
     </div>
+  </section>
+
+  <section>
+    <p>emit</p>
+    <div data-test="first" @click="$emit('changePage', 'first')">第一頁</div>
+    <div data-test="prev" @click="$emit('changePage', 'prev')">上一頁</div>
+    <div data-test="next" @click="$emit('changePage', 'next')">下一頁</div>
+    <div data-test="last" @click="$emit('changePage', 'last')">最後一頁</div>
   </section>
 </template>
