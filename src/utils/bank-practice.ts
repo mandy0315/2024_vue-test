@@ -9,7 +9,7 @@ export class Bank {
       return '用戶已經開戶過！';
     }
     this.accounts.push({ name, money: 0 });
-    return `開戶完成`;
+    return '開戶完成';
   }
   deposit(name: string, money: number) {
     const account = this.accounts.find(item => item.name === name);
