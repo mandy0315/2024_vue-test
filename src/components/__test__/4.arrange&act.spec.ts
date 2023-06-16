@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount, shallowMount, VueWrapper } from '@vue/test-utils';
 import HelloWorld from '../HelloWorld.vue';
+import SlotComponent from '../slot-component.vue';
 
 describe('vue test utils', () => {
   it('目標元素', () => {
@@ -95,12 +96,55 @@ describe('vue test utils', () => {
     // - 斷言 title 元素是否有正確的文字
     expect(wrapper.find('[data-test="title"]').text()).toEqual('Hello2');
   });
-  it('emit 事件', () => {
+  it('emit 事件', async () => {
     const wrapper = mount(HelloWorld);
-    wrapper.get('[data-test="first"]').trigger('click');
+    await wrapper.get('[data-test="first"]').trigger('click');
     expect(wrapper.emitted()).toHaveProperty('changePage'); // emit 屬性名稱是否正確
-    wrapper.get('[data-test="first"]').trigger('click');
+    await wrapper.get('[data-test="first"]').trigger('click');
     expect(wrapper.emitted().changePage).toHaveLength(2); // emit 次數是否正確
     expect(wrapper.emitted().changePage[0]).toEqual(['first']); // emit 參數是否正確
+  });
+  describe('slot 插槽', () => {
+    it('未傳入 slot', () => {
+      const wrapper = mount(SlotComponent);
+      // 快照測試
+      expect(wrapper.html()).toMatchInlineSnapshot('"<div></div>"');
+    });
+    it('已傳入 slot', () => {
+      const wrapper = mount(SlotComponent, {
+        slots: {
+          header: '<p>haeder slot</p>',
+          default: '<p>default slot</p>',
+          footer: '<p>footer slot</p>',
+        },
+      });
+      // 快照測試
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<div>
+          <p>haeder slot</p>
+          <p>default slot</p>
+          <p>footer slot</p>
+        </div>"
+      `);
+    });
+    it('作用域插槽', () => {
+      const wrapper = mount(SlotComponent, {
+        slots: {
+          default: `
+          <template v-slot="{ baseInfo }">
+            <p>姓名:{{ baseInfo.name }}</p>
+            <p>年齡:{{ baseInfo.age }}</p>
+          </template>
+          `,
+        },
+      });
+      // 快照測試
+      expect(wrapper.html()).toMatchInlineSnapshot(`
+        "<div>
+          <p>姓名:小明</p>
+          <p>年齡:18</p>
+        </div>"
+      `);
+    });
   });
 });
