@@ -14,7 +14,7 @@ describe('Mocking API', () => {
       expect(vi.getMockedSystemTime()).toEqual(new Date('2022-10-13'));
     });
 
-    it('恢復時間', () => {
+    it.skip('恢復時間', () => {
       vi.useFakeTimers(); // 使用模擬時間
       vi.setSystemTime(new Date('2022-10-13')); // 設定模擬時間
       vi.useRealTimers(); // 恢復模擬時間

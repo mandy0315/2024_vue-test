@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     DoubleComponent: typeof import('./src/components/double-component.vue')['default']
     DoubleTest: typeof import('./src/components/double-test.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    PiniaComponent: typeof import('./src/components/pinia-component.vue')['default']
     SlotComponent: typeof import('./src/components/slot-component.vue')['default']
   }
 }

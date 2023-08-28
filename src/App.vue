@@ -8,5 +8,7 @@
     <double-test>
       <p>hello double</p>
     </double-test>
+
+    <pinia-component />
   </div>
 </template>
