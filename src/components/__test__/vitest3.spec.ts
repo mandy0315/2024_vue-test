@@ -14,7 +14,7 @@ describe('測試情境描述', () => {
     expect(spySayHi).toHaveBeenCalledWith('John'); // 調用參數
     expect(spySayHi).toHaveReturned(); // 是否有返回值
     expect(spySayHi).toHaveReturnedTimes(1); // 返回值n次
-    expect(spySayHi).toHaveReturnedWith('Hi, John'); // 最後返回值
+    expect(spySayHi).toHaveReturnedWith('Hi, John'); // 返回值
     expect(spySayHi).toHaveLastReturnedWith('Hi, John'); // 最後返回值
     expect(spySayHi).toHaveNthReturnedWith(1, 'Hi, John'); // n次的返回值
   });

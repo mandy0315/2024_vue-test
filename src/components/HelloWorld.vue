@@ -82,16 +82,17 @@ const selectedResult = ref('');
   <section>
     <p>slot</p>
     <slot-component>
-      <template #header>
-        <h1>Header</h1>
-      </template>
-      <template #footer>
-        <h1>Footer</h1>
-      </template>
+      <template #header></template>
+      <template #footer></template>
       <template v-slot="{ baseInfo }">
         <p>姓名:{{ baseInfo.name }}</p>
         <p>年齡:{{ baseInfo.age }}</p>
       </template>
     </slot-component>
+  </section>
+
+  <section data-test="double">
+    <p>double</p>
+    <child-component />
   </section>
 </template>

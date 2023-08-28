@@ -26,6 +26,7 @@
     },
     "types": [
       "vite/client", // 識別 import.meta
+      "vitest/globals"
     ],
     "forceConsistentCasingInFileNames": false, // 禁用檢查路徑檔案大小寫
   },

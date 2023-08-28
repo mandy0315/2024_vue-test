@@ -2,8 +2,11 @@
 
 <template>
   <div>
-    <HelloWorld msg="Hello Vitest" />
+    <hello-world msg="Hello Vitest" />
 
-    <BankComponent />
+    <bank-component />
+    <double-test>
+      <p>hello double</p>
+    </double-test>
   </div>
 </template>

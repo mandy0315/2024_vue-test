@@ -11,6 +11,8 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BankComponent: typeof import('./src/components/bank-component.vue')['default']
     ChildComponent: typeof import('./src/components/child-component.vue')['default']
+    DoubleComponent: typeof import('./src/components/double-component.vue')['default']
+    DoubleTest: typeof import('./src/components/double-test.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     SlotComponent: typeof import('./src/components/slot-component.vue')['default']
   }

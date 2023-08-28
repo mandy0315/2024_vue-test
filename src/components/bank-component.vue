@@ -25,7 +25,9 @@ const handleWithdraw = () => {
 <template>
   <section>
     <h1 class="pt-10 text-4xl">銀行</h1>
-    <p data-test="status" class="bg-yellow-100 my-2">狀態：{{ status }}</p>
+    <p class="bg-yellow-100 my-2">
+      狀態：<span data-test="status">{{ status }}</span>
+    </p>
 
     帳戶:<input data-test="input_account" v-model="account" type="text" class="border border-gray-400 block" />
     金額：<input
