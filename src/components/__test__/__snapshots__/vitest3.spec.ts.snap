@@ -7,7 +7,7 @@ DOMWrapper {
     data-test="vitest-link"
     href="https://vitest.dev/"
   >
-    快照測試
+    快照測試test
   </a>,
 }
 `;

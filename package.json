@@ -9,9 +9,10 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier . --write",
-    "test:unit": "vitest --run --environment jsdom --reporter verbose --root src/",
-    "test:watch": "vitest --watch --environment jsdom --root src/",
-    "test:ui": "vitest --ui --environment jsdom --root src/"
+    "test:unit": "vitest --run --reporter verbose",
+    "test:watch": "vitest --watch",
+    "test:update": "vitest --update",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "pinia": "^2.1.6",

@@ -4,7 +4,6 @@ import HelloWorld from '../HelloWorld.vue';
 
 describe('測試情境描述', () => {
   it('測試替身-監聽函式', () => {
-    console.log(vi.fn());
     const sayHi = (name: string) => `Hi, ${name}`;
     const spySayHi = vi.fn(sayHi);
     spySayHi('John');
@@ -22,6 +21,7 @@ describe('測試情境描述', () => {
     const wrapper = mount(HelloWorld);
     const target = wrapper.find('[data-test="vitest-link"]');
     // toMatchSnapshot 新增檔案儲存快照; toMatchInlineSnapshot 快照內嵌在測試檔案中
+    // 更新快照 pnpm test:update
     expect(target).toMatchSnapshot();
   });
   it('測試異常情境', () => {

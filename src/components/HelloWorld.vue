@@ -6,7 +6,7 @@ import SlotComponent from './slot-component.vue';
 defineProps({
   msg: {
     type: String,
-    required: true,
+    default: '',
   },
 });
 
@@ -20,7 +20,7 @@ const selectedResult = ref('');
 <template>
   <h1 data-test="title" class="text-6xl text-green-700">{{ msg }}</h1>
 
-  <a data-test="vitest-link" href="https://vitest.dev/">快照測試</a>
+  <a data-test="vitest-link" href="https://vitest.dev/">快照測試test</a>
 
   <section>
     <p ref="dog">小黑</p>

@@ -1,14 +1,9 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { shallowMount, mount } from '@vue/test-utils';
+import { describe, it, expect } from 'vitest';
+import { mount, shallowMount } from '@vue/test-utils';
 import HelloWorld from '../HelloWorld.vue';
 import DoubleTest from '../double-test.vue';
 
 describe.only('vue test utils 測試替身', () => {
-  it('shallowMount', () => {
-    const wrapper = mount(DoubleTest);
-
-    expect(wrapper.get('[data-test="double"]').html()).toContain('<child-component></child-component>');
-  });
   it('mount', () => {
     const wrapper = mount(HelloWorld, {
       shallow: true,

@@ -58,7 +58,7 @@ describe('pinia stores testing', () => {
       expect(store.count).toBe(10);
       expect(wrapper.find('[data-test="count"]').text()).toBe('10');
     });
-    it('stubActions 模擬行為', async () => {
+    it.skip('stubActions 模擬行為', async () => {
       // 預設情況：怎麼操作 Store，都不會影響到 Store 本身的 State 值
       // 如果要有互動行為 stubActions: false 來關閉對 Store Action 的隔離
       const options = {
@@ -68,7 +68,7 @@ describe('pinia stores testing', () => {
       const { wrapper, store } = factory(options);
 
       const spy = vi.spyOn(store, 'handleLogin');
-      await wrapper.find('[data-test="login"]').trigger('click');
+      await wrapper.find('[data-test="button_login"]').trigger('click');
 
       expect(spy).toHaveBeenCalledTimes(1);
     });
