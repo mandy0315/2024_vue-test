@@ -2,15 +2,15 @@ import { describe, it, expect, vi } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useMainStore } from '/src/store';
 
-import PiniaComponent from '/src/components/pinia-component.vue';
+import PiniaComponent from '../Store.vue';
 
 // 元件測試
 import { mount } from '@vue/test-utils';
 import { createTestingPinia, TestingOptions } from '@pinia/testing';
 
 // https://pinia.vuejs.org/cookbook/testing.html
-describe('pinia stores testing', () => {
-  describe('測試 store 函式', () => {
+describe('[pinia] store-tests', () => {
+  describe('store 單元測試', () => {
     it('呼叫 increment，數量為2', () => {
       setActivePinia(createPinia());
 
@@ -25,7 +25,7 @@ describe('pinia stores testing', () => {
     });
   });
 
-  describe('store 與 元件測試', () => {
+  describe('store 元件測試', () => {
     const factory = (
       options: TestingOptions = {
         createSpy: vi.fn(),

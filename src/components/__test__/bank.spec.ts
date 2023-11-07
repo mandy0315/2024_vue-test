@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import BankComponent from '../bank-component.vue';
+import BankComponent from '../Bank.vue';
 
 describe('執行開戶', async () => {
   it('輸入帳戶名稱，開戶完成，狀態欄位顯示開戶完成', async () => {

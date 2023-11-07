@@ -12,7 +12,8 @@
     "test:unit": "vitest --run --reporter verbose",
     "test:watch": "vitest --watch",
     "test:update": "vitest --update",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "cy:component": "cypress open --component"
   },
   "dependencies": {
     "pinia": "^2.1.6",
@@ -27,6 +28,7 @@
     "@vitest/ui": "^0.31.1",
     "@vue/test-utils": "^2.3.2",
     "autoprefixer": "^10.4.14",
+    "cypress": "^13.3.2",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

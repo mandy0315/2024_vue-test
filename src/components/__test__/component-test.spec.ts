@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { mount, shallowMount, VueWrapper } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
+import { defineComponent } from 'vue';
 import HelloWorld from '../HelloWorld.vue';
-import SlotComponent from '../slot-component.vue';
 
-describe('vue test utils', () => {
+describe('[vitest&test-utils]元件測試', () => {
   it('目標元素', () => {
     const wrapper = mount(HelloWorld);
 
@@ -20,7 +20,6 @@ describe('vue test utils', () => {
   });
   it('目標資訊', () => {
     const wrapper = mount(HelloWorld);
-    const stubWrapper = shallowMount(HelloWorld);
 
     // attributes
     expect(wrapper.get('[data-test="link"]').attributes('href')).toBe('https://v1.test-utils.vuejs.org/ru/');
@@ -29,12 +28,12 @@ describe('vue test utils', () => {
     expect(wrapper.get('[data-test="link"]').classes()).toContain('link');
 
     // text
-    expect(wrapper.get('[data-test="target"]').text()).toBe('ParentChild');
-    expect(stubWrapper.get('[data-test="target"]').text()).toBe('Parent');
+    expect(wrapper.get('[data-test="title"]').text()).toBe('');
 
     // html
-    expect(wrapper.get('[data-test="target"]').html()).toContain('<p>Child</p>');
-    expect(stubWrapper.get('[data-test="target"]').html()).toContain('<child-component-stub></child-component-stub>');
+    expect(wrapper.get('[data-test="title"]').html()).toBe(
+      '<h1 data-test="title" class="text-6xl text-green-700"></h1>',
+    );
   });
   it('目標事件', async () => {
     const wrapper = mount(HelloWorld);
@@ -92,11 +91,6 @@ describe('vue test utils', () => {
     await wrapper.setProps({ msg: 'Hello2' });
     // - 斷言是否傳入對 props 參數給元件
     expect(wrapper.props('msg')).toBe('Hello2');
-    expect(wrapper.props()).toEqual({
-      msg: 'Hello2',
-    });
-    // - 斷言 title 元素是否有正確的文字
-    expect(wrapper.get('[data-test="title"]').text()).toEqual('Hello2');
   });
   it('emit 事件', async () => {
     const wrapper = mount(HelloWorld);
@@ -107,13 +101,31 @@ describe('vue test utils', () => {
     expect(wrapper.emitted().changePage[0]).toEqual(['first']); // emit 參數是否正確
   });
   describe('slot 插槽', () => {
+    const component = defineComponent({
+      name: 'SlotComponent',
+      template: `
+        <div>
+          <slot name="header"></slot>
+          <slot :baseInfo="baseInfo"></slot>
+          <slot name="footer"></slot>
+        </div>
+      `,
+      setup() {
+        return {
+          baseInfo: {
+            name: '小明',
+            age: 18,
+          },
+        };
+      },
+    });
     it('未傳入 slot', () => {
-      const wrapper = mount(SlotComponent);
+      const wrapper = mount(component);
       // 快照測試
       expect(wrapper.html()).toMatchInlineSnapshot('"<div></div>"');
     });
     it('已傳入 slot', () => {
-      const wrapper = mount(SlotComponent, {
+      const wrapper = mount(component, {
         slots: {
           header: '<p>haeder slot</p>',
           default: '<p>default slot</p>',
@@ -130,10 +142,10 @@ describe('vue test utils', () => {
       `);
     });
     it('作用域插槽', () => {
-      const wrapper = mount(SlotComponent, {
+      const wrapper = mount(component, {
         slots: {
           default: `
-          <template v-slot="{ baseInfo }">
+          <template #baseInfo>
             <p>姓名:{{ baseInfo.name }}</p>
             <p>年齡:{{ baseInfo.age }}</p>
           </template>

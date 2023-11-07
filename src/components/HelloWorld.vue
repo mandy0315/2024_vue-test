@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import ChildComponent from './child-component.vue';
-import SlotComponent from './slot-component.vue';
 
 defineProps({
   msg: {
@@ -77,22 +75,5 @@ const selectedResult = ref('');
     <div data-test="prev" @click="$emit('changePage', 'prev')">上一頁</div>
     <div data-test="next" @click="$emit('changePage', 'next')">下一頁</div>
     <div data-test="last" @click="$emit('changePage', 'last')">最後一頁</div>
-  </section>
-
-  <section>
-    <p>slot</p>
-    <slot-component>
-      <template #header></template>
-      <template #footer></template>
-      <template v-slot="{ baseInfo }">
-        <p>姓名:{{ baseInfo.name }}</p>
-        <p>年齡:{{ baseInfo.age }}</p>
-      </template>
-    </slot-component>
-  </section>
-
-  <section data-test="double">
-    <p>double</p>
-    <child-component />
   </section>
 </template>
