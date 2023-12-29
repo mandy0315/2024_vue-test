@@ -12,8 +12,7 @@
     "test:unit": "vitest --run --reporter verbose",
     "test:watch": "vitest --watch",
     "test:update": "vitest --update",
-    "test:ui": "vitest --ui",
-    "cy:component": "cypress open --component"
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "pinia": "^2.1.6",
