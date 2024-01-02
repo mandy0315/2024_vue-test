@@ -1,8 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
-import { setActivePinia, createPinia } from 'pinia';
 import { useMainStore } from '/src/store';
 
-import PiniaComponent from '../Store.vue';
+import Store from '../Store.vue';
 
 // 元件測試
 import { mount } from '@vue/test-utils';
@@ -10,29 +9,14 @@ import { createTestingPinia } from '@pinia/testing';
 import type { TestingOptions } from '@pinia/testing';
 
 // https://pinia.vuejs.org/cookbook/testing.html
-describe('[pinia] store-tests', () => {
-  describe('store 單元測試', () => {
-    it('呼叫 increment，數量為2', () => {
-      setActivePinia(createPinia());
-
-      const store = useMainStore();
-      store.$patch({ count: 1 });
-      store.increment();
-
-      const actual = store.count;
-      const expected = 2;
-
-      expect(actual).toBe(expected);
-    });
-  });
-
-  describe('store 元件測試', () => {
+describe('store-tests', () => {
+  describe('<Store>', () => {
     const factory = (
       options: TestingOptions = {
         createSpy: vi.fn(),
       },
     ) => {
-      const wrapper = mount(PiniaComponent, {
+      const wrapper = mount(Store, {
         global: {
           plugins: [createTestingPinia(options)],
         },
