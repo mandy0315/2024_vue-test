@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Bank } from '/src/utils/bank-practice.ts';
+import { Bank } from '/src/utils/bank-practice';
 const account = ref('');
 const money = ref(0);
 const status = ref('');
