@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <hello-world msg="Hello Vitest" />
+    <hello-world msg="Hello" />
 
     <bank-component />
     <double-test>

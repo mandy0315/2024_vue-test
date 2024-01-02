@@ -1,13 +1,12 @@
 import HelloWorld from './HelloWorld.vue';
 
-describe('元件測試', () => {
-  it('props設定', () => {
-    // see: https://on.cypress.io/mounting-vue
+describe('props 傳遞', () => {
+  it('msg 應顯示 Hello', () => {
     cy.mount(HelloWorld, {
       props: {
-        msg: 'Hello1',
+        msg: 'Hello Cypress',
       },
     });
-    cy.get('[data-test="title"]').should('have.text', 'Hello1');
+    cy.get('[data-test="title"]').should('have.text', 'Hello Cypress');
   });
 });

@@ -13,7 +13,9 @@
     "test:watch": "vitest --watch",
     "test:update": "vitest --update",
     "test:ui": "vitest --ui",
-    "test:e2e": "cypress open"
+    "test:cy-e2e": "cypress open --e2e",
+    "test:cy-com": "cypress open --component",
+    "check-types": "vue-tsc --project tsconfig.json --composite false"
   },
   "dependencies": {
     "pinia": "^2.1.6",

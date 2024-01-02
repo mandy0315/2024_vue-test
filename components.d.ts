@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Bank: typeof import('./src/components/Bank.vue')['default']
     BankComponent: typeof import('./src/components/bank-component.vue')['default']
     ChildComponent: typeof import('./src/components/child-component.vue')['default']
     DoubleComponent: typeof import('./src/components/double-component.vue')['default']
@@ -16,5 +17,6 @@ declare module '@vue/runtime-core' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     PiniaComponent: typeof import('./src/components/pinia-component.vue')['default']
     SlotComponent: typeof import('./src/components/slot-component.vue')['default']
+    Store: typeof import('./src/components/Store.vue')['default']
   }
 }
