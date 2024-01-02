@@ -6,7 +6,8 @@ import PiniaComponent from '../Store.vue';
 
 // 元件測試
 import { mount } from '@vue/test-utils';
-import { createTestingPinia, TestingOptions } from '@pinia/testing';
+import { createTestingPinia } from '@pinia/testing';
+import type { TestingOptions } from '@pinia/testing';
 
 // https://pinia.vuejs.org/cookbook/testing.html
 describe('[pinia] store-tests', () => {
