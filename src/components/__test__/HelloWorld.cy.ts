@@ -7,6 +7,6 @@ describe('props 傳遞', () => {
         msg: 'Hello Cypress',
       },
     });
-    cy.get('[data-test="title"]').should('have.text', 'Hello Cypress');
+    cy.dataTest('title').should('have.text', 'Hello Cypress');
   });
 });
